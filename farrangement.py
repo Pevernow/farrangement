@@ -32,19 +32,19 @@ lis=list(os.walk(path))[0][2]
 for i in lis:
     ftype=(os.path.splitext(i)[1])
     if ftype=='.doc' or ftype == '.docx' or ftype == '.wps' or ftype =='.et' or ftype =='.xls' or ftype =='.xlsx' or ftype=='.ppt' or ftype =='.pptx' or ftype=='.dps' or ftype=='.txt'or ftype==".pdf":
-        fm.move(path+i,"C:\\Users\\Administrator\\Desktop\\文档\\"+i)
+        fm.move(path+i,"/文档/"+i)
     elif ftype=='.jpg' or ftype==".jpeg" or ftype==".png" or ftype==".gif" or ftype==".bmp" or ftype==".pcx" or ftype==".tiff":
-        fm.move(path+i,"C:\\Users\\Administrator\\Desktop\\图片\\"+i)
+        fm.move(path+i,"./图片/"+i)
     elif ftype==".zip" or ftype==".rar" or ftype==".gz" or ftype==".tar" or ftype==".7z" or ftype==".iso":
-         fm.move(path+i,"C:\\Users\\Administrator\\Desktop\\压缩\\"+i)
+         fm.move(path+i,"./压缩/"+i)
     elif ftype==".mp4" or ftype==".mkv" or ftype==".mov" or ftype==".rm" or ftype==".rmvb" or ftype==".wmv" or ftype==".avi":
-        fm.move(path+i,"C:\\Users\\Administrator\\Desktop\\视频\\"+i)
+        fm.move(path+i,"./视频/"+i)
     elif ftype==".mp3" or ftype==".wmv" or ftype==".wav" or ftype==".flac":
-        fm.move(path+i,"C:\\Users\\Administrator\\Desktop\\音乐/"+i)
+        fm.move(path+i,"./音乐/"+i)
     elif ftype==".java" or ftype==".c" or ftype==".cpp" or ftype==".exe" or ftype==".dll" or ftype==".lib" or ftype==".dsp" or ftype==".dsw" or ftype==".cs" or ftype==".asp" or ftype==".aspx" or ftype==".php" or ftype==".jsp" or ftype==".go" or ftype==".py" or ftype==".pyc" or ftype==".asm" or ftype==".vbs" or ftype==".bat" or ftype==".cmd":
-        fm.move(path+i,"C:\\Users\\Administrator\\Desktop\\代码\\"+i)
+        fm.move(path+i,"./代码/"+i)
     else:
-        fm.move(path+i,"C:\\Users\\Administrator\\Desktop\\其他\\"+i)
+        fm.move(path+i,"./其他/"+i)
 CEF('C:\\Users\\Administrator\\Desktop\\')
 
 
