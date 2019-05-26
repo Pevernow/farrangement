@@ -43,7 +43,7 @@ for i in lis:
         fm.move(path+i,os.path.join(os.path.join(path,"音乐"),i))
     elif ftype==".java" or ftype==".c" or ftype==".cpp" or ftype==".dll" or ftype==".lib" or ftype==".dsp" or ftype==".dsw" or ftype==".cs" or ftype==".asp" or ftype==".aspx" or ftype==".php" or ftype==".jsp" or ftype==".go" or ftype==".py" or ftype==".pyc" or ftype==".asm" or ftype==".vbs" or ftype==".bat" or ftype==".cmd":
         fm.move(path+i,os.path.join(os.path.join(path,"代码"),i))
-    elif ftype!=".lnk":
+    elif ftype!=".lnk" and ftype!=".exe":
         fm.move(path+i,os.path.join(os.path.join(path,"其他"),i))
 CEF(path)
 
