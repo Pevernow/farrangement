@@ -2,6 +2,7 @@ import os
 import shutil as fm
 import sys
 import time
+import platform
 
 def CEF(path):
     files = os.listdir(path)  # 获取路径下的子文件(夹)列表
@@ -13,20 +14,31 @@ def CEF(path):
             if os.path.getsize(file) == 0:  # 文件大小为0
                 os.remove(file)  # 删除这个文件
                 
-print ("Farrangement 文件整理 [版本 1.1beta]")
+print ("Farrangement 文件整理 [版本 1.3beta]")
 print ("遵循GPLv3协议")
 print ("作者: wzy2006 博客: wzy2006.github.io")
+
+if platform.system()=='Windows':
+    dpath='Desktop'
+elif platform.system()=='Linux':
+    dpath="桌面"
+else:
+    print("暂不支持该系统")
+    exit()
+
+
+
+path=os.path.join(os.path.expanduser("~"), dpath)+os.sep
 try:
-    os.mkdir("文档")
-    os.mkdir("视频")
-    os.mkdir("代码")
-    os.mkdir("图片")
-    os.mkdir("压缩")
-    os.mkdir("音乐")
-    os.mkdir("其他")
+    os.mkdir(path+"文档")
+    os.mkdir(path+"视频")
+    os.mkdir(path+"代码")
+    os.mkdir(path+"图片")
+    os.mkdir(path+"压缩")
+    os.mkdir(path+"音乐")
+    os.mkdir(path+"其他")
 except BaseException:
     i=0
-path=os.path.join(os.path.expanduser("~"), 'Desktop')+"\\"
 print("\n开始整理")
 lis=list(os.walk(path))[0][2]
 for i in lis:
@@ -43,7 +55,7 @@ for i in lis:
         fm.move(path+i,os.path.join(os.path.join(path,"音乐"),i))
     elif ftype==".java" or ftype==".c" or ftype==".cpp" or ftype==".dll" or ftype==".lib" or ftype==".dsp" or ftype==".dsw" or ftype==".cs" or ftype==".asp" or ftype==".aspx" or ftype==".php" or ftype==".jsp" or ftype==".go" or ftype==".py" or ftype==".pyc" or ftype==".asm" or ftype==".vbs" or ftype==".bat" or ftype==".cmd":
         fm.move(path+i,os.path.join(os.path.join(path,"代码"),i))
-    elif ftype!=".lnk" and ftype!=".exe":
+    elif ftype!=".lnk" and ftype!=".exe" and ftype!=".desktop" and i!="desktop.ini":
         fm.move(path+i,os.path.join(os.path.join(path,"其他"),i))
 CEF(path)
 
